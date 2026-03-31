@@ -66,7 +66,7 @@
 
         nav {
             display: flex;
-            gap: 40px; /* Increased spacing between nav items */
+            gap: 40px;
         }
 
         nav a {
@@ -90,9 +90,9 @@
         }
 
         .hero { 
-            padding: 80px 20px 60px; 
+            padding: 80px 20px 45px;
             text-align: center; 
-            min-height: 70vh;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -125,7 +125,7 @@
         }
 
         section { 
-            padding: 60px 40px; 
+            padding: 40px 40px;
             max-width: 1000px;
             margin: 0 auto;
             opacity: 0;
@@ -138,19 +138,24 @@
             transform: translateY(0);
         }
 
+        /* Consistent section heading */
         section h2 {
             font-size: 1.8rem;
-            margin-bottom: 25px; 
+            margin-bottom: 18px; 
             border-bottom: 2px solid var(--border);
-            padding-bottom: 12px;
+            padding-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent);
         }
 
-        /* Reduced spacing after About Me text */
+        /* Tighter spacing specifically for About Me to match other sections */
+        #about {
+            padding-bottom: 35px; /* Slightly less than standard 40px */
+        }
+
         #about p {
-            margin-bottom: 15px;
+            margin-bottom: 8px; /* Very tight after the paragraph */
         }
 
         .skills-grid, .projects {
@@ -190,7 +195,7 @@
             justify-content: center;
             gap: 50px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .contact-item {
@@ -209,9 +214,9 @@
 
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             background: #e8dfd1;
-            margin-top: 60px;
+            margin-top: 30px;
             color: #5c4033;
             font-size: 0.95rem;
         }
@@ -222,7 +227,7 @@
         }
 
         .resume-btn {
-            margin-top: 30px;
+            margin-top: 28px;
             padding: 12px 28px;
             background: var(--accent);
             color: white;
