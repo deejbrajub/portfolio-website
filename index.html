@@ -10,7 +10,7 @@
         :root {
             --bg: #f5efe6;
             --text: #3e2f1c;
-            --accent: #8b6f47;
+            --accent: #d2691e;
             --card-bg: #fffaf3;
             --border: #d6c7b0;
         }
@@ -18,7 +18,7 @@
         [data-theme="dark"] {
             --bg: #2c241c;
             --text: #e8dfd1;
-            --accent: #c4a484;
+            --accent: #f2994a;
             --card-bg: #3e2f1c;
             --border: #5c4033;
         }
@@ -136,6 +136,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease;
+            scroll-margin-top: 90px;
         }
 
         section.visible {
@@ -216,7 +217,11 @@
 
         /* ---------- DESKTOP ---------- */
         @media (min-width: 900px) {
-            .skills-grid, .projects {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
                 grid-template-columns: repeat(3, 1fr);
             }
 
@@ -250,6 +255,7 @@
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
             <a href="#contact">Contact</a>
         </nav>
         <button class="theme-toggle" id="theme-toggle">
@@ -364,18 +370,13 @@
         </div>
 
         <div class="card">
-            <h3>AI Cell Detection</h3>
-            <p>YOLO-based automated diagnostic system for medical image classification, with a full Python pipeline from preprocessing to visualisation.</p>
-        </div>
-
-        <div class="card">
             <h3>HR Stay-Interview Automation</h3>
             <p>Power Automate + Azure AI pipeline for transcription, sentiment and theme analysis, eliminating 70&ndash;100 hours of manual review a year.</p>
         </div>
 
         <div class="card">
-            <h3>QR Access System</h3>
-            <p>Biometric access using facial recognition + QR codes.</p>
+            <h3>AI Cell Detection</h3>
+            <p>YOLO-based automated diagnostic system for medical image classification, with a full Python pipeline from preprocessing to visualisation.</p>
         </div>
     </div>
 </section>
@@ -384,12 +385,34 @@
     <h2>Credentials</h2>
     <div class="projects">
         <div class="card">
-            <h3>Microsoft Applied Skills</h3>
-            <ul>
-                <li>Enhance Agents with Autonomous Capabilities (Aug 2026)</li>
-                <li>Build an Agent in Microsoft Copilot Studio (Aug 2026)</li>
-                <li>Create &amp; Manage Automated Processes with Power Automate (Aug 2026)</li>
-            </ul>
+            <h3>Enhance Agents with Autonomous Capabilities</h3>
+            <p>Microsoft Applied Skills, Aug 2026</p>
+        </div>
+
+        <div class="card">
+            <h3>Build an Agent in Microsoft Copilot Studio</h3>
+            <p>Microsoft Applied Skills, Aug 2026</p>
+        </div>
+
+        <div class="card">
+            <h3>Create &amp; Manage Automated Processes with Power Automate</h3>
+            <p>Microsoft Applied Skills, Aug 2026</p>
+        </div>
+    </div>
+</section>
+
+<section id="education">
+    <h2>Education</h2>
+    <div class="projects">
+        <div class="card">
+            <h3>Master of Engineering in Computer Engineering</h3>
+            <p><em>University of KwaZulu-Natal &middot; In Progress</em></p>
+            <p>Research topic: A Machine Learning-Based Framework for Automated Urine Sediment Analysis in Chronic Kidney Disease Diagnosis, supervised by Prof J.R. Tapamo.</p>
+        </div>
+
+        <div class="card">
+            <h3>Bachelor of Science in Computer Engineering</h3>
+            <p><em>University of KwaZulu-Natal &middot; 2020 &ndash; 2025</em></p>
         </div>
     </div>
 </section>
