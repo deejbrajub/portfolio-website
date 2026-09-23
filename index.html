@@ -463,9 +463,9 @@ sections.forEach(section => observer.observe(section));
 
 <!-- Suggested prompts (custom, since the widget has no built-in prompts) -->
 <div id="suggested-prompts">
-    <button class="suggested-prompt-btn" data-prompt="What does Deej do at Al Baraka Bank?">What does she do at Al Baraka Bank?</button>
-    <button class="suggested-prompt-btn" data-prompt="What is Deej's Master's research about?">What's her research about?</button>
-    <button class="suggested-prompt-btn" data-prompt="What are Deej's key skills?">What are her key skills?</button>
+    <button class="suggested-prompt-btn" data-prompt="What does Khadeeja do at Al Baraka Bank?">What does Khadeeja do at Al Baraka Bank?</button>
+    <button class="suggested-prompt-btn" data-prompt="What is Khadeeja's Master's research about?">What's Khadeeja's Masters research about?</button>
+    <button class="suggested-prompt-btn" data-prompt="What are Khadeeja's key skills?">What are Khadeeja's key skills?</button>
 </div>
 
 <style>
@@ -510,13 +510,21 @@ sections.forEach(section => observer.observe(section));
 </style>
 
 <script>
-    document.querySelectorAll('.suggested-prompt-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var bubble = document.querySelector('chat-bubble-snippet');
-            if (bubble && typeof bubble.sendMessage === 'function') {
-                bubble.sendMessage(btn.dataset.prompt);
-            }
-            document.getElementById('suggested-prompts').style.display = 'none';
+    customElements.whenDefined('chat-bubble-snippet').then(function () {
+        document.querySelectorAll('.suggested-prompt-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var bubble = document.querySelector('chat-bubble-snippet');
+                if (!bubble) return;
+                if (bubble.shadowRoot) {
+                    var launcher = bubble.shadowRoot.querySelector('button');
+                    if (launcher) launcher.click();
+                }
+                setTimeout(function () {
+                    if (typeof bubble.sendMessage === 'function') {
+                        bubble.sendMessage(btn.dataset.prompt);
+                    }
+                }, 150);
+            });
         });
     });
 </script>
