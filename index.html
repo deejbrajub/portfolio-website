@@ -511,18 +511,11 @@ sections.forEach(section => observer.observe(section));
 <script>
     customElements.whenDefined('chat-bubble-snippet').then(function () {
         document.querySelectorAll('.suggested-prompt-btn').forEach(function (btn) {
-            btn.addEventListener('click', function () {
+            btn.addEventListener('click', async function () {
                 var bubble = document.querySelector('chat-bubble-snippet');
-                if (!bubble) return;
-                if (bubble.shadowRoot) {
-                    var launcher = bubble.shadowRoot.querySelector('button');
-                    if (launcher) launcher.click();
+                if (bubble && typeof bubble.sendMessage === 'function') {
+                    await bubble.sendMessage(btn.dataset.prompt);
                 }
-                setTimeout(function () {
-                    if (typeof bubble.sendMessage === 'function') {
-                        bubble.sendMessage(btn.dataset.prompt);
-                    }
-                }, 150);
             });
         });
     });
