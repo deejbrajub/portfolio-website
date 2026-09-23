@@ -496,7 +496,23 @@ sections.forEach(section => observer.observe(section));
         border-color: var(--accent);
     }
     @media (max-width: 600px) {
-        #suggested-prompts { display: none; }
+        #suggested-prompts {
+            left: 10px;
+            right: 10px;
+            bottom: 84px;
+            flex-direction: row;
+            align-items: stretch;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 2px;
+        }
+        #suggested-prompts::-webkit-scrollbar { display: none; }
+        .suggested-prompt-btn {
+            flex: 0 0 auto;
+            font-size: 0.75rem;
+            padding: 7px 12px;
+        }
     }
 </style>
 
@@ -511,11 +527,18 @@ sections.forEach(section => observer.observe(section));
 <script>
     customElements.whenDefined('chat-bubble-snippet').then(function () {
         document.querySelectorAll('.suggested-prompt-btn').forEach(function (btn) {
-            btn.addEventListener('click', async function () {
+            btn.addEventListener('click', function () {
                 var bubble = document.querySelector('chat-bubble-snippet');
-                if (bubble && typeof bubble.sendMessage === 'function') {
-                    await bubble.sendMessage(btn.dataset.prompt);
+                if (!bubble) return;
+                if (bubble.shadowRoot) {
+                    var launcher = bubble.shadowRoot.querySelector('button');
+                    if (launcher) launcher.click();
                 }
+                setTimeout(function () {
+                    if (typeof bubble.sendMessage === 'function') {
+                        bubble.sendMessage(btn.dataset.prompt);
+                    }
+                }, 150);
             });
         });
     });
