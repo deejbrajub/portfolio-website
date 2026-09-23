@@ -290,8 +290,8 @@
             <p><em>Jul 2026 &ndash; Present</em></p>
             <ul>
                 <li>Built Yara, a Copilot Studio chatbot streamlining customer queries and complaint/lead capture into SharePoint &amp; Freshdesk</li>
-                <li>Built an AI agent for client visits.</li>
-                <li>Automated HR stay-interviews with Power Automate &amp; Azure AI.</li>
+                <li>Built an AI agent for client visits, significantly cutting processing time per visit</li>
+                <li>Automated HR stay-interviews with Power Automate &amp; Azure AI</li>
                 <li>Built Power Automate flows, SharePoint lists, and Power BI dashboards across the bank</li>
             </ul>
         </div>
@@ -372,7 +372,7 @@
 
         <div class="card">
             <h3>HR Stay-Interview Automation</h3>
-            <p>Power Automate + Azure AI pipeline for transcription, sentiment and theme analysis.</p>
+            <p>Power Automate + Azure AI pipeline for transcription, sentiment and theme analysis of stay-interview data.</p>
         </div>
 
         <div class="card">
@@ -453,9 +453,21 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => observer.observe(section));
 </script>
 
-<script>
-(function(){if(!window.chatbaseCenterStage||window.chatbaseCenterStage("getState")!=="initialized"){window.chatbaseCenterStage=(...arguments)=>{if(!window.chatbaseCenterStage.q){window.chatbaseCenterStage.q=[]}window.chatbaseCenterStage.q.push(arguments)};window.chatbaseCenterStage=new Proxy(window.chatbaseCenterStage,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/center-stage-embed.min.js";script.id="5acGME8U6qGlAgjfUHlPR";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+<!-- Import the library -->
+<script type="module" src="https://fc869146-fc3c-4daf-88e6-b376723c20e1.search.ai.cloudflare.com/assets/v0.0.40/search-snippet.es.js"></script>
+
+<!-- Chat Bubble Widget (Fixed bottom-right) -->
+<chat-bubble-snippet 
+    api-url="https://fc869146-fc3c-4daf-88e6-b376723c20e1.search.ai.cloudflare.com/">
+</chat-bubble-snippet>
+
+<!-- Customize with CSS Variables -->
+<style>
+    chat-bubble-snippet {
+        --search-snippet-primary-color: #b8460e;
+        --search-snippet-border-radius: 12px;
+    }
+</style>
 
 </body>
 </html>
