@@ -461,6 +461,46 @@ sections.forEach(section => observer.observe(section));
     api-url="https://fc869146-fc3c-4daf-88e6-b376723c20e1.search.ai.cloudflare.com/">
 </chat-bubble-snippet>
 
+<!-- Suggested prompts (custom, since the widget has no built-in prompts) -->
+<div id="suggested-prompts">
+    <button class="suggested-prompt-btn" data-prompt="What does Deej do at Al Baraka Bank?">What does she do at Al Baraka Bank?</button>
+    <button class="suggested-prompt-btn" data-prompt="What is Deej's Master's research about?">What's her research about?</button>
+    <button class="suggested-prompt-btn" data-prompt="What are Deej's key skills?">What are her key skills?</button>
+</div>
+
+<style>
+    #suggested-prompts {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        z-index: 9998;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+    }
+    .suggested-prompt-btn {
+        background: var(--card-bg);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        white-space: nowrap;
+        transition: all 0.2s ease;
+    }
+    .suggested-prompt-btn:hover {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+    }
+    @media (max-width: 600px) {
+        #suggested-prompts { display: none; }
+    }
+</style>
+
 <!-- Customize with CSS Variables -->
 <style>
     chat-bubble-snippet {
@@ -468,6 +508,18 @@ sections.forEach(section => observer.observe(section));
         --search-snippet-border-radius: 12px;
     }
 </style>
+
+<script>
+    document.querySelectorAll('.suggested-prompt-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var bubble = document.querySelector('chat-bubble-snippet');
+            if (bubble && typeof bubble.sendMessage === 'function') {
+                bubble.sendMessage(btn.dataset.prompt);
+            }
+            document.getElementById('suggested-prompts').style.display = 'none';
+        });
+    });
+</script>
 
 </body>
 </html>
